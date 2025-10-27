@@ -1,32 +1,57 @@
 {
-  "name": "app-name",
-  "version": "1.2.1",
-  "dependencies": {
-    "@chumsinc/alert-list": "^2.0.0",
-    "@chumsinc/sortable-tables": "^2.0.7",
-    "@chumsinc/ui-utils": "^2.0.4",
-    "@emotion/react": "^11.14.0",
-    "@mantine/hooks": "^8.2.1",
-    "@reduxjs/toolkit": "^2.0.1",
-    "chums-types": "github:ChumsInc/chums-types",
-    "classnames": "^2.3.2",
-    "dayjs": "^1.11.10",
-    "decimal.js": "^10.4.3",
-    "numeral": "^2.0.6",
-    "react": "^19.1.0",
-    "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.1.0",
-    "react-error-boundary": "^6.0.0",
-    "react-redux": "^9.2.0",
-    "redux": "^5.0.1"
+  "name": "@chumsinc/textarea",
+  "version": "1.0.0",
+  "description": "An auto resizing textarea for React",
+  "keywords": [
+    "TextArea",
+    "resize"
+  ],
+  "homepage": "https://github.com/ChumsInc/textarea#readme",
+  "bugs": {
+    "url": "https://github.com/ChumsInc/textarea/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChumsInc/textarea.git"
+  },
+  "license": "ISC",
+  "author": "Steve Montgomery",
+  "type": "module",
+  "source": "lib/index.tsx",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
-    "preinstall": "npm init",
     "preview": "vite preview",
     "version": "auto-changelog -p && git add CHANGELOG.md"
+  },
+  "peerDependencies": {
+    "@emotion/styled": "^11.14.0",
+    "classnames": "*",
+    "react": ">=18.1.0",
+    "react-dom": ">=18.1.0"
+  },
+  "devDependencies": {
+    "@emotion/styled": "^11.14.0",
+    "@eslint/js": "^9.30.1",
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^5.1.0",
+    "auto-changelog": "^2.4.0",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.4",
+    "vite-plugin-dts": "^4.5.4"
   },
   "browserslist": {
     "production": [
@@ -39,23 +64,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.30.1",
-    "@types/node": "^24.1.0",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^5.0.4",
-    "auto-changelog": "^2.4.0",
-    "bootstrap": "^5.3.7",
-    "bootstrap-icons": "^1.13.1",
-    "eslint": "^9.30.1",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
   },
   "auto-changelog": {
     "template": "changelog-template.hbs",

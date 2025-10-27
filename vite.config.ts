@@ -1,48 +1,29 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react';
-import path from "node:path";
-import process from "node:process";
+import dts from 'vite-plugin-dts';
+import {resolve} from 'node:path'
+import {cwd} from 'node:process'
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [react()],
-    resolve: {
-        alias: {
-            "@/api": path.resolve(process.cwd(), 'src/api'),
-            "@/app": path.resolve(process.cwd(), 'src/app'),
-            "@/components": path.resolve(process.cwd(), 'src/components'),
-            "@/ducks": path.resolve(process.cwd(), 'src/ducks'),
-            "@/hooks": path.resolve(process.cwd(), 'src/hooks'),
-            "@/slices": path.resolve(process.cwd(), 'src/slices'),
-            "@/src": path.resolve(process.cwd(), 'src'),
-            "@/types": path.resolve(process.cwd(), 'src/types'),
-            "@/utils": path.resolve(process.cwd(), 'src/utils'),
-        }
-    },
-    base: "/apps/amz-fba-item-map/",
+    plugins: [react(), dts({include: ['lib']})],
+    resolve: {},
     build: {
-        manifest: true,
-        sourcemap: true,
+        lib: {
+            entry: resolve(cwd(), './lib/index.tsx'),
+            name: 'TextArea',
+            fileName: (format) => `index.${format}.js`
+        },
         rollupOptions: {
+            external: ['react', 'react/jsx-runtime', 'react-dom', 'classnames', '@emotion/styled'],
             output: {
-                manualChunks(id) {
-                    if (id.includes('node_modules')) {
-                        return 'vendor'
-                    }
-                    if (id.includes('src/components')) {
-                        return 'components';
-                    }
+                globals:{
+                    react: 'React',
+                    'react-dom': 'ReactDOM',
+                    'react/jsx-runtime': 'jsxRuntime',
+                    classnames: 'classNames',
+                    '@emotion/styled': 'styled'
                 }
-            }
-        }
-    },
-    server: {
-        port: 8080,
-        host: 'localhost',
-        proxy: {
-            '/api': {
-                target: 'http://localhost:8081',
-                changeOrigin: true,
             }
         }
     }
