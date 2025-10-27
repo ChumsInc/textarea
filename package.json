@@ -1,0 +1,66 @@
+{
+  "name": "app-name",
+  "version": "1.2.1",
+  "dependencies": {
+    "@chumsinc/alert-list": "^2.0.0",
+    "@chumsinc/sortable-tables": "^2.0.7",
+    "@chumsinc/ui-utils": "^2.0.4",
+    "@emotion/react": "^11.14.0",
+    "@mantine/hooks": "^8.2.1",
+    "@reduxjs/toolkit": "^2.0.1",
+    "chums-types": "github:ChumsInc/chums-types",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.10",
+    "decimal.js": "^10.4.3",
+    "numeral": "^2.0.6",
+    "react": "^19.1.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.1.0",
+    "react-error-boundary": "^6.0.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preinstall": "npm init",
+    "preview": "vite preview",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^5.0.4",
+    "auto-changelog": "^2.4.0",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.4"
+  },
+  "auto-changelog": {
+    "template": "changelog-template.hbs",
+    "unreleased": true,
+    "commitLimit": false,
+    "breakingPattern": "BREAKING CHANGE:"
+  }
+}
