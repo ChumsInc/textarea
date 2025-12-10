@@ -1,4 +1,4 @@
-import TextArea from '../lib/index.js'
+import TextArea from '../lib/TextArea.js'
 import {ChangeEvent, useId, useState} from "react";
 
 export default function Test() {

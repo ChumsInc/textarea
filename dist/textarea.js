@@ -1,6 +1,6 @@
 import { jsx as e } from "react/jsx-runtime";
-import n from "@emotion/styled";
 import h from "classnames";
+import n from "@emotion/styled";
 const v = n.div`
     display: flex;
     width: 100%;
@@ -15,12 +15,7 @@ const v = n.div`
         outline: 0;
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
-`, y = n.div`
-    display: flex;
-    box-sizing: border-box;
-    flex-grow: 1;
-    height: 100%;
-`, w = n.textarea`
+`, y = n.textarea`
     field-sizing: content;
     overflow: hidden;
     border: none;
@@ -34,6 +29,11 @@ const v = n.div`
         box-shadow: none;
         border-color: transparent;
     }
+`, w = n.div`
+    display: flex;
+    box-sizing: border-box;
+    flex-grow: 1;
+    height: 100%;
 `;
 function A({
   size: l,
@@ -53,8 +53,8 @@ function A({
     "form-control-sm": l === "sm",
     "form-control-lg": l === "lg"
   }), { value: m, onChange: u, id: g, ...p } = f ?? {};
-  return /* @__PURE__ */ e(v, { className: x, style: { maxHeight: o, minHeight: r }, children: /* @__PURE__ */ e(y, { children: /* @__PURE__ */ e(
-    w,
+  return /* @__PURE__ */ e(v, { className: x, style: { maxHeight: o, minHeight: r }, children: /* @__PURE__ */ e(w, { children: /* @__PURE__ */ e(
+    y,
     {
       id: i ?? g,
       value: a ?? m,

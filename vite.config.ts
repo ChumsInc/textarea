@@ -10,9 +10,9 @@ export default defineConfig({
     resolve: {},
     build: {
         lib: {
-            entry: resolve(cwd(), './lib/index.tsx'),
+            entry: resolve(cwd(), './lib/TextArea.tsx'),
             name: 'TextArea',
-            fileName: (format) => `index.${format}.js`
+            // fileName: (format) => `index.${format}.js`
         },
         rollupOptions: {
             external: ['react', 'react/jsx-runtime', 'react-dom', 'classnames', '@emotion/styled'],
