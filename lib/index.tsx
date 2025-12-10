@@ -1,1 +1,4 @@
-export {default as TextArea, type TextAreaProps} from './TextArea.tsx'
+import TextArea from './TextArea';
+
+export type {TextAreaProps} from './types';
+export default TextArea
