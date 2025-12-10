@@ -12,12 +12,12 @@
         outline: 0;
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
-`,f=o.div`
+`,a=o.div`
     display: flex;
     box-sizing: border-box;
     flex-grow: 1;
     height: 100%;
-`,a=o.textarea`
+`,f=o.textarea`
     field-sizing: content;
     overflow: hidden;
     border: none;
@@ -25,9 +25,10 @@
     padding: 0;
     outline: none;
     width: 100%;
+    background-color: inherit;
 
     &:focus {
         box-shadow: none;
         border-color: transparent;
     }
-`;function u({size:s,maxHeight:r,minHeight:n,minRows:t,maxRows:d,className:b,rowLineHeight:i,textAreaProps:x}){!n&&t&&(n=`${t*(i??21)}px`),!r&&d&&(r=`${d*(i??21)}px`);const m=l("form-control",b,{"form-control-sm":s==="sm","form-control-lg":s==="lg"});return e.jsx(c,{className:m,style:{maxHeight:r,minHeight:n},children:e.jsx(f,{children:e.jsx(a,{...x})})})}return u}));
+`;function u({size:s,value:b,onChange:x,id:m,maxHeight:r,minHeight:n,minRows:t,maxRows:i,className:h,rowLineHeight:d,textAreaProps:p}){!n&&t&&(n=`${t*(d??21)}px`),!r&&i&&(r=`${i*(d??21)}px`);const y=l("form-control",h,{"form-control-sm":s==="sm","form-control-lg":s==="lg"}),{value:v,onChange:g,id:j,...w}=p??{};return e.jsx(c,{className:y,style:{maxHeight:r,minHeight:n},children:e.jsx(a,{children:e.jsx(f,{id:m??j,value:b??v,onChange:x??g,...w})})})}return u}));

@@ -1,4 +1,4 @@
-import {type TextareaHTMLAttributes} from 'react';
+import {ChangeEvent, type TextareaHTMLAttributes} from 'react';
 import styled from "@emotion/styled";
 import classNames from "classnames";
 
@@ -33,6 +33,7 @@ const StyledTextArea = styled.textarea`
     padding: 0;
     outline: none;
     width: 100%;
+    background-color: inherit;
 
     &:focus {
         box-shadow: none;
@@ -41,7 +42,10 @@ const StyledTextArea = styled.textarea`
 `
 
 export interface TextAreaProps {
+    value?: string;
+    onChange?: (ev: ChangeEvent<HTMLTextAreaElement>) => void;
     size?: 'sm' | 'lg';
+    id?: string;
     className?: string;
     maxHeight?: string;
     minHeight?: string;
@@ -53,6 +57,9 @@ export interface TextAreaProps {
 
 export default function TextArea({
                                      size,
+                                     value,
+                                     onChange,
+                                     id,
                                      maxHeight,
                                      minHeight,
                                      minRows,
@@ -71,10 +78,13 @@ export default function TextArea({
         'form-control-sm': size === 'sm',
         'form-control-lg': size === 'lg',
     })
+    const {value: _value, onChange: _onChange, id: _id, ...rest} = textAreaProps ?? {};
     return (
         <ScrollArea className={_className} style={{maxHeight, minHeight}}>
             <ScrollContent>
-                <StyledTextArea {...textAreaProps} />
+                <StyledTextArea id={id ?? _id} value={value ?? _value}
+                                onChange={onChange ?? _onChange}
+                                {...rest} />
             </ScrollContent>
         </ScrollArea>
     )

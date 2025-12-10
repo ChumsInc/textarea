@@ -12,7 +12,9 @@ export default function Test() {
     return (
         <div>
             <label htmlFor={id}>Test it here.</label>
-            <TextArea textAreaProps={{id, value, onChange: changeHandler}} minHeight="3rem" maxHeight="75vh" className="font-monospace"/>
+            <TextArea id={id} value={value} onChange={changeHandler}
+                      minHeight="3rem" maxHeight="75vh"
+                      className="font-monospace"/>
         </div>
     )
 }

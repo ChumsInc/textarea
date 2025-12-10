@@ -1,7 +1,7 @@
 import { jsx as e } from "react/jsx-runtime";
-import l from "@emotion/styled";
-import i from "classnames";
-const f = l.div`
+import n from "@emotion/styled";
+import h from "classnames";
+const v = n.div`
     display: flex;
     width: 100%;
     overflow-y: scroll;
@@ -15,12 +15,12 @@ const f = l.div`
         outline: 0;
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
-`, x = l.div`
+`, y = n.div`
     display: flex;
     box-sizing: border-box;
     flex-grow: 1;
     height: 100%;
-`, m = l.textarea`
+`, w = n.textarea`
     field-sizing: content;
     overflow: hidden;
     border: none;
@@ -28,29 +28,41 @@ const f = l.div`
     padding: 0;
     outline: none;
     width: 100%;
+    background-color: inherit;
 
     &:focus {
         box-shadow: none;
         border-color: transparent;
     }
 `;
-function g({
-  size: n,
+function A({
+  size: l,
+  value: a,
+  onChange: c,
+  id: i,
   maxHeight: o,
   minHeight: r,
   minRows: t,
-  maxRows: s,
-  className: c,
-  rowLineHeight: d,
-  textAreaProps: a
+  maxRows: d,
+  className: b,
+  rowLineHeight: s,
+  textAreaProps: f
 }) {
-  !r && t && (r = `${t * (d ?? 21)}px`), !o && s && (o = `${s * (d ?? 21)}px`);
-  const b = i("form-control", c, {
-    "form-control-sm": n === "sm",
-    "form-control-lg": n === "lg"
-  });
-  return /* @__PURE__ */ e(f, { className: b, style: { maxHeight: o, minHeight: r }, children: /* @__PURE__ */ e(x, { children: /* @__PURE__ */ e(m, { ...a }) }) });
+  !r && t && (r = `${t * (s ?? 21)}px`), !o && d && (o = `${d * (s ?? 21)}px`);
+  const x = h("form-control", b, {
+    "form-control-sm": l === "sm",
+    "form-control-lg": l === "lg"
+  }), { value: m, onChange: u, id: g, ...p } = f ?? {};
+  return /* @__PURE__ */ e(v, { className: x, style: { maxHeight: o, minHeight: r }, children: /* @__PURE__ */ e(y, { children: /* @__PURE__ */ e(
+    w,
+    {
+      id: i ?? g,
+      value: a ?? m,
+      onChange: c ?? u,
+      ...p
+    }
+  ) }) });
 }
 export {
-  g as default
+  A as default
 };
