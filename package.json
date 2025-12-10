@@ -1,6 +1,6 @@
 {
   "name": "@chumsinc/textarea",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An auto resizing textarea for React",
   "keywords": [
     "TextArea",
