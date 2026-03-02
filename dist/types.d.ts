@@ -1,4 +1,4 @@
-import { TextareaHTMLAttributes } from 'react';
+import { type TextareaHTMLAttributes } from "react";
 export interface TextAreaProps extends Pick<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange' | 'id' | 'className'> {
     size?: 'sm' | 'lg';
     maxHeight?: string;

@@ -20,22 +20,24 @@
   "source": "./lib/index.tsx",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/index.es.js"
       },
       "require": {
-        "types": "./dist/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/index.cjs.js"
       }
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build-vite && npm run build-dts",
+    "build-vite": "vite build",
+    "build-dts": "tsc -p tsconfig-build.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "version": "auto-changelog -p && git add CHANGELOG.md"
@@ -48,7 +50,7 @@
   },
   "devDependencies": {
     "@emotion/styled": "^11.14.0",
-    "@eslint/js": "^9.30.1",
+    "@eslint/js": "^10.0.1",
     "@types/node": "^25.0.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.1.6",
@@ -56,14 +58,12 @@
     "auto-changelog": "^2.4.0",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
-    "eslint": "^9.30.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
+    "eslint": "^10.0.2",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4",
-    "vite-plugin-dts": "^4.5.4"
+    "vite": "^7.0.4"
   },
   "browserslist": {
     "production": [

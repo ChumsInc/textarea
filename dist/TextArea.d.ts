@@ -1,4 +1,4 @@
-import { ChangeEvent, TextareaHTMLAttributes } from 'react';
+import { ChangeEvent, type TextareaHTMLAttributes } from 'react';
 export interface TextAreaProps {
     value?: string;
     onChange?: (ev: ChangeEvent<HTMLTextAreaElement>) => void;
