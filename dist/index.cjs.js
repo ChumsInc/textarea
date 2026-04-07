@@ -1,4 +1,4 @@
-"use strict";const e=require("react/jsx-runtime"),y=require("classnames"),n=require("@emotion/styled"),m=n.div`
+var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=Object.getOwnPropertyNames,i=Object.getPrototypeOf,a=Object.prototype.hasOwnProperty,o=(e,i,o,s)=>{if(i&&typeof i==`object`||typeof i==`function`)for(var c=r(i),l=0,u=c.length,d;l<u;l++)d=c[l],!a.call(e,d)&&d!==o&&t(e,d,{get:(e=>i[e]).bind(null,d),enumerable:!(s=n(i,d))||s.enumerable});return e},s=(n,r,a)=>(a=n==null?{}:e(i(n)),o(r||!n||!n.__esModule?t(a,`default`,{value:n,enumerable:!0}):a,n));let c=require(`classnames`);c=s(c);let l=require(`@emotion/styled`);l=s(l);let u=require(`react/jsx-runtime`);var d=l.default.div`
     display: flex;
     width: 100%;
     overflow-y: scroll;
@@ -8,11 +8,11 @@
     &:focus-within {
         color: var(--bs-body-color);
         background-color: var(--bs-body-bg);
-        border-color: #86b7fe;
+        border-color: var(--bs-border-color);
         outline: 0;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        box-shadow: 0 0 0 0.25rem var(--bs-border-color-translucent);
     }
-`,p=n.textarea`
+`,f=l.default.textarea`
     field-sizing: content;
     overflow: hidden;
     border: none;
@@ -26,9 +26,9 @@
         box-shadow: none;
         border-color: transparent;
     }
-`,w=n.div`
+`,p=l.default.div`
     display: flex;
     box-sizing: border-box;
     flex-grow: 1;
     height: 100%;
-`;function j({size:l,value:d,onChange:a,id:i,maxHeight:o,minHeight:r,minRows:s,maxRows:t,className:b,rowLineHeight:c,textAreaProps:u}){!r&&s&&(r=`${s*(c??21)}px`),!o&&t&&(o=`${t*(c??21)}px`);const x=y("form-control",b,{"form-control-sm":l==="sm","form-control-lg":l==="lg"}),{value:f,onChange:g,id:h,...v}=u??{};return e.jsx(m,{className:x,style:{maxHeight:o,minHeight:r},children:e.jsx(w,{children:e.jsx(p,{id:i??h,value:d??f,onChange:a??g,...v})})})}module.exports=j;
+`;function m({size:e,value:t,onChange:n,id:r,maxHeight:i,minHeight:a,minRows:o,maxRows:s,className:l,rowLineHeight:m,textAreaProps:h}){!a&&o&&(a=`${o*(m??21)}px`),!i&&s&&(i=`${s*(m??21)}px`);let g=(0,c.default)(`form-control`,l,{"form-control-sm":e===`sm`,"form-control-lg":e===`lg`}),{value:_,onChange:v,id:y,...b}=h??{};return(0,u.jsx)(d,{className:g,style:{maxHeight:i,minHeight:a},children:(0,u.jsx)(p,{children:(0,u.jsx)(f,{id:r??y,value:t??_,onChange:n??v,...b})})})}module.exports=m;

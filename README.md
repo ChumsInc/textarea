@@ -1,37 +1,37 @@
 ![Chums Logo](https://intranet.chums.com/images/chums/chums-badge-120x120.png)
 
-# CHUMS App React Presets
-A generic template for creating React apps without the overhead of create-react-app
+# CHUMS TextArea component
+A React component for a textarea with auto-resize.
 
 ## Notes
-This includes the basics for publishing an app the Chums Intranet
-Included modules are:
-* Bootstrap 5.3 & Bootstrap Icons, React Bootstrap
-* React 19
-* Redux & Toolkit
+This component uses Bootstrap 5 for styling.
 
-## Instructions
-* In GitHub click the "Use this template" button, and "Create a new repository"
-* Check out the new repository via editor of choice, the examples are for PHPStorm/JetBrains
-* Run ```npm init```
-  * Assign a package name, version, etc.
-* Run ```npm install```
-* Configure PHPStorm
-  * set deployment path, eg, /var/www/intranet.chums.com/apps/{app-name}
-  * update index.php 
-* Write some code
-* Build and publish the app
-* Make some user happy with a custom app
+## Peer Dependencies
+- react: >=18.2.0
+- react-dom: >=18.2.0
+- @emotion/styled:  ^11.14.0
+- bootstrap: ^5.3.7
+- classnames: ^2.5.1
 
-## Other Handy Repositories
-```
-npm install ChumsInc/b2b-types
-npm install @mui/material @emotion/react @emotion/styled
-npm install @mui/icons-material
-```
+## Usage Example
+```tsx
 
-## Server Side Rendering
-Check out tsconfig-paths-webpack-plugin to rename the paths in the dist directory to the full path name.
-```
-npm install -dev tsconfig-paths-webpack-plugin
+export default function Test() {
+  const id = useId();
+  const [value, setValue] = useState('');
+
+  const changeHandler = (ev: ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(ev.target.value);
+  }
+
+  return (
+          <div>
+            <label htmlFor={id}>Test it here.</label>
+            <TextArea id={id} value={value} onChange={changeHandler}
+                      minHeight="3rem" maxHeight="75vh"
+                      className="font-monospace"/>
+          </div>
+  )
+}
+
 ```

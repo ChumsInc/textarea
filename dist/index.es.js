@@ -1,7 +1,8 @@
-import { jsx as e } from "react/jsx-runtime";
-import h from "classnames";
-import n from "@emotion/styled";
-const v = n.div`
+import e from "classnames";
+import t from "@emotion/styled";
+import { jsx as n } from "react/jsx-runtime";
+//#region lib/TextArea.tsx
+var r = t.div`
     display: flex;
     width: 100%;
     overflow-y: scroll;
@@ -11,11 +12,11 @@ const v = n.div`
     &:focus-within {
         color: var(--bs-body-color);
         background-color: var(--bs-body-bg);
-        border-color: #86b7fe;
+        border-color: var(--bs-border-color);
         outline: 0;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        box-shadow: 0 0 0 0.25rem var(--bs-border-color-translucent);
     }
-`, y = n.textarea`
+`, i = t.textarea`
     field-sizing: content;
     overflow: hidden;
     border: none;
@@ -29,40 +30,31 @@ const v = n.div`
         box-shadow: none;
         border-color: transparent;
     }
-`, w = n.div`
+`, a = t.div`
     display: flex;
     box-sizing: border-box;
     flex-grow: 1;
     height: 100%;
 `;
-function A({
-  size: l,
-  value: a,
-  onChange: c,
-  id: i,
-  maxHeight: o,
-  minHeight: r,
-  minRows: t,
-  maxRows: d,
-  className: b,
-  rowLineHeight: s,
-  textAreaProps: f
-}) {
-  !r && t && (r = `${t * (s ?? 21)}px`), !o && d && (o = `${d * (s ?? 21)}px`);
-  const x = h("form-control", b, {
-    "form-control-sm": l === "sm",
-    "form-control-lg": l === "lg"
-  }), { value: m, onChange: u, id: g, ...p } = f ?? {};
-  return /* @__PURE__ */ e(v, { className: x, style: { maxHeight: o, minHeight: r }, children: /* @__PURE__ */ e(w, { children: /* @__PURE__ */ e(
-    y,
-    {
-      id: i ?? g,
-      value: a ?? m,
-      onChange: c ?? u,
-      ...p
-    }
-  ) }) });
+function o({ size: t, value: o, onChange: s, id: c, maxHeight: l, minHeight: u, minRows: d, maxRows: f, className: p, rowLineHeight: m, textAreaProps: h }) {
+	!u && d && (u = `${d * (m ?? 21)}px`), !l && f && (l = `${f * (m ?? 21)}px`);
+	let g = e("form-control", p, {
+		"form-control-sm": t === "sm",
+		"form-control-lg": t === "lg"
+	}), { value: _, onChange: v, id: y, ...b } = h ?? {};
+	return /* @__PURE__ */ n(r, {
+		className: g,
+		style: {
+			maxHeight: l,
+			minHeight: u
+		},
+		children: /* @__PURE__ */ n(a, { children: /* @__PURE__ */ n(i, {
+			id: c ?? y,
+			value: o ?? _,
+			onChange: s ?? v,
+			...b
+		}) })
+	});
 }
-export {
-  A as default
-};
+//#endregion
+export { o as default };

@@ -12,9 +12,9 @@ const ScrollArea = styled.div`
     &:focus-within {
         color: var(--bs-body-color);
         background-color: var(--bs-body-bg);
-        border-color: #86b7fe;
+        border-color: var(--bs-border-color);
         outline: 0;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        box-shadow: 0 0 0 0.25rem var(--bs-border-color-translucent);
     }
 `
 
