@@ -1,5 +1,5 @@
 import { HTMLAttributes, type TextareaHTMLAttributes } from 'react';
-export interface TextAreaProps extends Pick<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange' | 'id' | 'className'> {
+export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols'> {
     size?: 'sm' | 'lg';
     maxHeight?: string;
     minHeight?: string;
@@ -8,6 +8,5 @@ export interface TextAreaProps extends Pick<TextareaHTMLAttributes<HTMLTextAreaE
     rowLineHeight?: number;
     scrollAreaProps?: HTMLAttributes<HTMLDivElement>;
     scrollContentProps?: HTMLAttributes<HTMLDivElement>;
-    textAreaProps?: Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows'>;
 }
-export default function TextArea({ size, value, onChange, id, maxHeight, minHeight, minRows, maxRows, className, rowLineHeight, scrollAreaProps, scrollContentProps, textAreaProps }: TextAreaProps): import("react/jsx-runtime").JSX.Element;
+export default function TextArea({ size, value, onChange, id, maxHeight, minHeight, minRows, maxRows, className, rowLineHeight, scrollAreaProps, scrollContentProps, ...rest }: TextAreaProps): import("react/jsx-runtime").JSX.Element;

@@ -36,9 +36,9 @@ var r = t.div`
     flex-grow: 1;
     height: 100%;
 `;
-function o({ size: t, value: o, onChange: s, id: c, maxHeight: l, minHeight: u, minRows: d, maxRows: f, className: p, rowLineHeight: m, scrollAreaProps: h, scrollContentProps: g, textAreaProps: _ }) {
+function o({ size: t, value: o, onChange: s, id: c, maxHeight: l, minHeight: u, minRows: d, maxRows: f, className: p, rowLineHeight: m, scrollAreaProps: h, scrollContentProps: g, ..._ }) {
 	!u && d && (u = `${d * (m ?? 21)}px`), !l && f && (l = `${f * (m ?? 21)}px`);
-	let { className: v, style: y, ...b } = h ?? {}, { value: x, onChange: S, id: C, ...w } = _ ?? {};
+	let { className: v, style: y, ...b } = h ?? {};
 	return /* @__PURE__ */ n(r, {
 		className: e("form-control", v, p, {
 			"form-control-sm": t === "sm",
@@ -53,10 +53,10 @@ function o({ size: t, value: o, onChange: s, id: c, maxHeight: l, minHeight: u, 
 		children: /* @__PURE__ */ n(a, {
 			...g,
 			children: /* @__PURE__ */ n(i, {
-				id: c ?? C,
-				value: o ?? x,
-				onChange: s ?? S,
-				...w
+				id: c,
+				value: o,
+				onChange: s,
+				..._
 			})
 		})
 	});

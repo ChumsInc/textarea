@@ -41,7 +41,7 @@ const ScrollContent = styled.div`
 `
 
 
-export interface TextAreaProps extends Pick<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange' | 'id' | 'className'> {
+export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows' | 'cols'> {
     size?: 'sm' | 'lg';
     maxHeight?: string;
     minHeight?: string;
@@ -50,7 +50,6 @@ export interface TextAreaProps extends Pick<TextareaHTMLAttributes<HTMLTextAreaE
     rowLineHeight?: number; // line height in px, used if minRows or maxRows is set
     scrollAreaProps?: HTMLAttributes<HTMLDivElement>;
     scrollContentProps?: HTMLAttributes<HTMLDivElement>;
-    textAreaProps?: Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows'>
 }
 
 export default function TextArea({
@@ -66,7 +65,7 @@ export default function TextArea({
                                      rowLineHeight,
                                      scrollAreaProps,
                                      scrollContentProps,
-                                     textAreaProps
+                                     ...rest
                                  }: TextAreaProps) {
     if (!minHeight && !!minRows) {
         minHeight = `${minRows * (rowLineHeight ?? 21)}px`;
@@ -81,13 +80,6 @@ export default function TextArea({
     } = scrollAreaProps ?? {};
 
 
-    const {
-        value: _value,
-        onChange: _onChange,
-        id: _id,
-        ...rest
-    } = textAreaProps ?? {};
-
     const _className = classNames('form-control',
         scrollAreaClassName,
         className,
@@ -100,8 +92,8 @@ export default function TextArea({
     return (
         <ScrollArea className={_className} style={{maxHeight, minHeight, ...scrollAreaStyle}} {...scrollAreaRest}>
             <ScrollContent {...scrollContentProps}>
-                <StyledTextArea id={id ?? _id} value={value ?? _value}
-                                onChange={onChange ?? _onChange}
+                <StyledTextArea id={id} value={value}
+                                onChange={onChange}
                                 {...rest} />
             </ScrollContent>
         </ScrollArea>
