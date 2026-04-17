@@ -1,4 +1,4 @@
-import {ChangeEvent, type TextareaHTMLAttributes} from 'react';
+import {HTMLAttributes, type TextareaHTMLAttributes} from 'react';
 import classNames from "classnames";
 import styled from "@emotion/styled";
 
@@ -41,17 +41,15 @@ const ScrollContent = styled.div`
 `
 
 
-export interface TextAreaProps {
-    value?: string;
-    onChange?: (ev: ChangeEvent<HTMLTextAreaElement>) => void;
+export interface TextAreaProps extends Pick<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange' | 'id' | 'className'> {
     size?: 'sm' | 'lg';
-    id?: string;
-    className?: string;
     maxHeight?: string;
     minHeight?: string;
     minRows?: number;
     maxRows?: number;
     rowLineHeight?: number; // line height in px, used if minRows or maxRows is set
+    scrollAreaProps?: HTMLAttributes<HTMLDivElement>;
+    scrollContentProps?: HTMLAttributes<HTMLDivElement>;
     textAreaProps?: Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'rows'>
 }
 
@@ -66,6 +64,8 @@ export default function TextArea({
                                      maxRows,
                                      className,
                                      rowLineHeight,
+                                     scrollAreaProps,
+                                     scrollContentProps,
                                      textAreaProps
                                  }: TextAreaProps) {
     if (!minHeight && !!minRows) {
@@ -74,14 +74,32 @@ export default function TextArea({
     if (!maxHeight && !!maxRows) {
         maxHeight = `${maxRows * (rowLineHeight ?? 21)}px`;
     }
-    const _className = classNames('form-control', className, {
-        'form-control-sm': size === 'sm',
-        'form-control-lg': size === 'lg',
-    })
-    const {value: _value, onChange: _onChange, id: _id, ...rest} = textAreaProps ?? {};
+    const {
+        className: scrollAreaClassName,
+        style: scrollAreaStyle,
+        ...scrollAreaRest
+    } = scrollAreaProps ?? {};
+
+
+    const {
+        value: _value,
+        onChange: _onChange,
+        id: _id,
+        ...rest
+    } = textAreaProps ?? {};
+
+    const _className = classNames('form-control',
+        scrollAreaClassName,
+        className,
+        {
+            'form-control-sm': size === 'sm',
+            'form-control-lg': size === 'lg',
+        }
+    )
+
     return (
-        <ScrollArea className={_className} style={{maxHeight, minHeight}}>
-            <ScrollContent>
+        <ScrollArea className={_className} style={{maxHeight, minHeight, ...scrollAreaStyle}} {...scrollAreaRest}>
+            <ScrollContent {...scrollContentProps}>
                 <StyledTextArea id={id ?? _id} value={value ?? _value}
                                 onChange={onChange ?? _onChange}
                                 {...rest} />

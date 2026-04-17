@@ -36,24 +36,29 @@ var r = t.div`
     flex-grow: 1;
     height: 100%;
 `;
-function o({ size: t, value: o, onChange: s, id: c, maxHeight: l, minHeight: u, minRows: d, maxRows: f, className: p, rowLineHeight: m, textAreaProps: h }) {
+function o({ size: t, value: o, onChange: s, id: c, maxHeight: l, minHeight: u, minRows: d, maxRows: f, className: p, rowLineHeight: m, scrollAreaProps: h, scrollContentProps: g, textAreaProps: _ }) {
 	!u && d && (u = `${d * (m ?? 21)}px`), !l && f && (l = `${f * (m ?? 21)}px`);
-	let g = e("form-control", p, {
-		"form-control-sm": t === "sm",
-		"form-control-lg": t === "lg"
-	}), { value: _, onChange: v, id: y, ...b } = h ?? {};
+	let { className: v, style: y, ...b } = h ?? {}, { value: x, onChange: S, id: C, ...w } = _ ?? {};
 	return /* @__PURE__ */ n(r, {
-		className: g,
+		className: e("form-control", v, p, {
+			"form-control-sm": t === "sm",
+			"form-control-lg": t === "lg"
+		}),
 		style: {
 			maxHeight: l,
-			minHeight: u
+			minHeight: u,
+			...y
 		},
-		children: /* @__PURE__ */ n(a, { children: /* @__PURE__ */ n(i, {
-			id: c ?? y,
-			value: o ?? _,
-			onChange: s ?? v,
-			...b
-		}) })
+		...b,
+		children: /* @__PURE__ */ n(a, {
+			...g,
+			children: /* @__PURE__ */ n(i, {
+				id: c ?? C,
+				value: o ?? x,
+				onChange: s ?? S,
+				...w
+			})
+		})
 	});
 }
 //#endregion

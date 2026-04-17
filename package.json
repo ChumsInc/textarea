@@ -20,15 +20,15 @@
   "source": "./lib/index.tsx",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/TextArea.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/index.d.ts",
+        "types": "./dist/TextArea.d.ts",
         "default": "./dist/index.es.js"
       },
       "require": {
-        "types": "./dist/types/index.d.ts",
+        "types": "./dist/TextArea.d.ts",
         "default": "./dist/index.cjs.js"
       }
     }
