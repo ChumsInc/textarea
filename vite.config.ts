@@ -11,7 +11,7 @@ export default defineConfig({
     resolve: {},
     build: {
         lib: {
-            entry: resolve(cwd(), './lib/TextArea.tsx'),
+            entry: resolve(cwd(), './src/TextArea.tsx'),
             name: 'TextArea',
             formats: ['es', 'cjs'],
             fileName: (format) => `index.${format}.js`,
